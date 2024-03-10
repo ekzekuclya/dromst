@@ -59,6 +59,8 @@ class MyCartViewSet(ListAPIView):
                 cart, created = Cart.objects.get_or_create(anonymous=anonymous)
                 qs = CartItem.objects.filter(cart=cart)
                 return qs
+            else:
+                return Response({"detail": "NO SESSION"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class CartActionViewSet(APIView):
@@ -84,6 +86,8 @@ class MyFavoriteView(viewsets.ViewSet):
             if anonymous is not None:
                 favorite, created = UserFavorite.objects.get_or_create(anonymous=anonymous)
                 return Response(FavoriteProductSerializer(favorite).data, status=status.HTTP_200_OK)
+            else:
+                return Response({"detail": "NO SESSION"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class OrderViewSet(viewsets.ViewSet):

@@ -43,6 +43,8 @@ class ProductViewSet(viewsets.ModelViewSet):
                 elif product in favorite.fav_products.all():
                     favorite.fav_products.remove(product)
                 return Response(FavoriteProductSerializer(favorite).data, status=status.HTTP_200_OK)
+            else:
+                return Response({"detail": "NO SESSION"}, status=status.HTTP_404_NOT_FOUND)
 
     @action(detail=True, methods=['GET'], url_path='similar')
     def get_similar_products(self, request, pk):
