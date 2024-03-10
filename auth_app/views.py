@@ -122,7 +122,7 @@ class OrderViewSet(viewsets.ViewSet):
                 cart_item = CartItem.objects.filter(cart=cart)
                 order = Order.objects.create(anonymous=anonymous)
                 for i in cart_item:
-                    order_item = CartItem.objects.get_or_create(order=order, product=i.product, quantity=i.quantity, color=i.color)
+                    order_item, created = CartItem.objects.get_or_create(order=order, product=i.product, quantity=i.quantity, color=i.color)
 
                 if request.data.get('name'):
                     order.name = request.data['name']
@@ -132,6 +132,8 @@ class OrderViewSet(viewsets.ViewSet):
 
                 cart.items.clear()
                 return Response(OrderSerializer(order).data, status=status.HTTP_200_OK)
+            else:
+                return Response({"detail": "NO SESSION"}, status=status.HTTP_404_NOT_FOUND)
 
     @action(detail=False, methods=['GET'], url_path='all_orders')
     def get_all_orders(self, request):
