@@ -60,7 +60,7 @@ class MyCartViewSet(ListAPIView):
                 qs = CartItem.objects.filter(cart=cart)
                 return qs
             else:
-                return Response({"detail": "NO SESSION"}, status=status.HTTP_404_NOT_FOUND)
+                return CartItem.objects.none()
 
 
 class CartActionViewSet(APIView):
