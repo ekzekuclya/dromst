@@ -54,9 +54,10 @@ INSTALLED_APPS = [
 
 # CORS
 CORS_ALLOWED_ORIGINS = [
+    "http://188.116.20.7:8000",
     "http://localhost:8000",
-    "https://front.example.com",
-    "https://backend.dromstor.com"]
+    "https://backend.dromstor.com",
+    "http://backend.dromstor.com"]
 
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_SAMESITE = None
