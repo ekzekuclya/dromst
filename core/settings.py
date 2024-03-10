@@ -63,7 +63,7 @@ SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_SAMESITE = None
 CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_DOMAIN = '.dromstor.com'
-CSRF_TRUSTED_ORIGINS = ['.dromstor.com']
+CSRF_TRUSTED_ORIGINS = ['https://backend.dromstor.com']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
