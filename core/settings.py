@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-93pb#stebdc_+toddq@ur9mpkd%&^2)_xo85f*(nuro--g7)^+
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_URL = 'https://backend.dromstor.com'
+BASE_URL = 'http://188.116.20.7:8000'
 
 # Application definition
 AUTH_USER_MODEL = 'auth_app.CustomUser'
