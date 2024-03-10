@@ -101,8 +101,7 @@ class OrderViewSet(viewsets.ViewSet):
             cart_item = CartItem.objects.filter(cart=cart)
 
             for i in cart_item:
-
-                order_item = CartItem.objects.get_or_create(order=order, product=i.product, quantity=i.quantity)
+                order_item, created = CartItem.objects.get_or_create(order=order, product=i.product, quantity=i.quantity)
                 if i.color:
                     order_item.color = i.color
                     order_item.save(update_fields=['color'])
