@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 # CORS
 
 CORS_ALLOWED_ORIGINS = [
-    "localhost:3000",
+    "http://localhost:3000",
     "http://188.116.20.7:8000",
     "http://localhost:8000",
     "https://backend.dromstor.com",
