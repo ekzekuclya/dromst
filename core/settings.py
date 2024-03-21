@@ -54,21 +54,16 @@ INSTALLED_APPS = [
 # CORS
 
 CORS_ALLOWED_ORIGINS = [
+    "https://dromstor.com",
     "http://localhost:3000",
-    "http://188.116.20.7:8000",
-    "http://localhost:8000",
-    "https://backend.dromstor.com",
-    "http://backend.dromstor.com"]
+    "https://backend.dromstor.com"]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-]
 
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_SAMESITE = None
 CORS_ALLOW_CREDENTIALS = True
-CSRF_COOKIE_DOMAIN = '.dromstor.com'
-CSRF_TRUSTED_ORIGINS = ['https://backend.dromstor.com', 'http://localhost:3001', 'http://localhost:3000']
+# CSRF_COOKIE_DOMAIN = '.dromstor.com'
+# CSRF_TRUSTED_ORIGINS = ['https://backend.dromstor.com', 'http://localhost:3001', 'http://localhost:3000']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
