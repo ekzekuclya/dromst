@@ -52,21 +52,23 @@ INSTALLED_APPS = [
 ]
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # CORS
-
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = (
-    "https://dromstor.com",
-    "http://localhost:3000",
-    "https://backend.dromstor.com"
-)
-CORS_ALLOWED_ORIGINS = [
-    "https://dromstor.com",
-    "http://localhost:3000",
-    "https://backend.dromstor.com"]
 
-
-SESSION_COOKIE_SECURE = True
-SESSION_COOKIE_SAMESITE = None
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_WHITELIST = (
+#     "https://dromstor.com",
+#     "http://localhost:3000",
+#     "https://backend.dromstor.com"
+# )
+# CORS_ALLOWED_ORIGINS = [
+#     "https://dromstor.com",
+#     "http://localhost:3000",
+#     "https://backend.dromstor.com"]
+#
+#
+# SESSION_COOKIE_SECURE = True
+# SESSION_COOKIE_SAMESITE = None
 
 # CSRF_COOKIE_DOMAIN = '.dromstor.com'
 # CSRF_TRUSTED_ORIGINS = ['https://backend.dromstor.com', 'http://localhost:3001', 'http://localhost:3000']
