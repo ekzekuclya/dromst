@@ -131,6 +131,8 @@ class ProductViewSet(viewsets.ModelViewSet):
             anonymous = save_anonymous(request)
             if anonymous is not None:
                 cart, created = Cart.objects.get_or_create(anonymous=anonymous)
+            else:
+                return Response({"detail": "NO SESSION"}, status=status.HTTP_404_NOT_FOUND)
         if color_id:
             color = get_object_or_404(Color, pk=color_id)
         else:
