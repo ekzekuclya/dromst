@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate
 from rest_framework import status, viewsets
-from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, get_object_or_404
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
@@ -65,9 +65,12 @@ class MyCartViewSet(ListAPIView):
 
 class CartActionViewSet(APIView):
     def post(self, request, pk):
-        cart_item = CartItem.objects.get(id=pk)
-        cart_item.delete()
-        return Response({"detail": "Item deleted"}, status=status.HTTP_200_OK)
+        try:
+            cart_item = CartItem.objects.get(id=pk)
+            cart_item.delete()
+            return Response({"detail": "Item deleted"}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"detail": "cart not found"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class MyFavoriteView(viewsets.ViewSet):

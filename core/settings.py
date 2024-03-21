@@ -61,7 +61,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://backend.dromstor.com"]
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000', 
+    'http://localhost:3000',
 ]
 
 SESSION_COOKIE_SECURE = True
