@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'products_app',
     # 'bot',
 ]
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # CORS
 
 CORS_ALLOWED_ORIGINS = [
