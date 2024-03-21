@@ -12,6 +12,7 @@ from rest_framework.decorators import action
 from .models import CartItem, Cart, UserFavorite, Order
 from .permissions import OrderPermission
 from .utils import save_anonymous
+from rest_framework.authentication import TokenAuthentication
 
 
 class RegUserViewSet(CreateAPIView):
@@ -22,6 +23,7 @@ class RegUserViewSet(CreateAPIView):
 class LoginAPIView(CreateAPIView):
     serializer_class = LoginSerializer
     permission_classes = [AllowAny]
+    authentication_classes = (TokenAuthentication,)
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
