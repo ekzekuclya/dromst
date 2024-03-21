@@ -70,7 +70,7 @@ CORS_ALLOWED_ORIGINS = [
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_SAMESITE = None
 CORS_ALLOW_CREDENTIALS = True
-CSRF_TRUSTED_ORIGINS = ['https://dromstor.com']
+CSRF_TRUSTED_ORIGINS = ['https://dromstor.com', 'http://localhost:3000', 'https://backend.dromstor.com']
 # CSRF_COOKIE_DOMAIN = '.dromstor.com'
 # CSRF_TRUSTED_ORIGINS = ['https://backend.dromstor.com', 'http://localhost:3001', 'http://localhost:3000']
 
