@@ -16,7 +16,16 @@ def save_anonymous(request):
     print(request.session.session_key)
     print("SESSION KEY", session_key)
     print("IP_ADRESS", ip_address)
-    # if not request.session.session_key:
+
+    if session_key:
+        try:
+            anonymous = AnonymousUser.objects.get(session_key=session_key)
+            anonymous.ip_address = ip_address
+            anonymous.save(update_fields=['ip_address'])
+        except Exception:
+            anonymous = AnonymousUser.objects.create(ip_address=ip_address, session_key=session_key)
+        return anonymous
+   # if not request.session.session_key:
     #     session_key = request.session.create()
     #     print("SESSION AFTER CREATE", request.session.session_key)
     #     if session_key:
@@ -27,11 +36,3 @@ def save_anonymous(request):
     #         except Exception:
     #             anonymous = AnonymousUser.objects.create(ip_address=ip_address, session_key=session_key)
     #         return anonymous
-    if session_key:
-        try:
-            anonymous = AnonymousUser.objects.get(session_key=session_key)
-            anonymous.ip_address = ip_address
-            anonymous.save(update_fields=['ip_address'])
-        except Exception:
-            anonymous = AnonymousUser.objects.create(ip_address=ip_address, session_key=session_key)
-        return anonymous
