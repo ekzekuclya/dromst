@@ -46,7 +46,7 @@ def order_texter(order):
 def whatsapp_sender(order):
     text = order_texter(order)
     greenAPI = API.GreenAPI(
-        "996706001042@c.us", "ff1c0c10b0a549be9aabf026064da3d6b57f4fe078c2438aa0"
+        "7103919749", "ff1c0c10b0a549be9aabf026064da3d6b57f4fe078c2438aa0"
     )
     response = greenAPI.sending.sendPoll(
         "996559001201@c.us",
@@ -65,3 +65,15 @@ def whatsapp_sender(order):
             {"optionName": "Отклонен"}
         ]
     )
+    # import requests
+    #
+    # url = "https://api.green-api.com/waInstance{{idInstance}}/sendMessage/{{apiTokenInstance}}"
+    #
+    # payload = "{\r\n\t\"chatId\": \"11001234567@c.us\",\r\n\t\"message\": \"I use Green-API to send this message to you!\"\r\n}"
+    # headers = {
+    #     'Content-Type': 'application/json'
+    # }
+    #
+    # response = requests.request("POST", url, headers=headers, data=payload)
+    #
+    # print(response.text.encode('utf8'))
