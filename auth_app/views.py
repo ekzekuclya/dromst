@@ -11,7 +11,7 @@ from rest_framework.decorators import action
 
 from .models import CartItem, Cart, UserFavorite, Order
 from .permissions import OrderPermission
-from .utils import save_anonymous
+from .utils import save_anonymous, whatsapp_sender
 from rest_framework.authentication import TokenAuthentication
 
 
@@ -119,8 +119,8 @@ class OrderViewSet(viewsets.ViewSet):
             if request.data.get('mobile'):
                 order.mobile = request.data['mobile']
             order.save()
-
             cart.items.clear()
+            whatsapp_sender(order)
             return Response(OrderSerializer(order).data, status=status.HTTP_200_OK)
         else:
             anonymous = save_anonymous(self.request)
@@ -138,7 +138,7 @@ class OrderViewSet(viewsets.ViewSet):
                 if request.data.get('mobile'):
                     order.mobile = request.data['mobile']
                 order.save()
-
+                whatsapp_sender(order)
                 cart.items.clear()
                 return Response(OrderSerializer(order).data, status=status.HTTP_200_OK)
             else:
