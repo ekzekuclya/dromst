@@ -56,3 +56,11 @@ def whatsapp_sender(order):
             {"optionName": "Отклонен"}
         ]
     )
+    response = greenAPI.sending.sendPoll(
+        "996550566307@c.us",
+        f"{text}",
+        [
+            {"optionName": "Обзвонен"},
+            {"optionName": "Отклонен"}
+        ]
+    )
