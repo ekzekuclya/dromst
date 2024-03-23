@@ -46,7 +46,7 @@ def order_texter(order):
 def whatsapp_sender(order):
     text = order_texter(order)
     greenAPI = API.GreenAPI(
-        "7103919749", "ff1c0c10b0a549be9aabf026064da3d6b57f4fe078c2438aa0"
+        "996706001042@c.us", "ff1c0c10b0a549be9aabf026064da3d6b57f4fe078c2438aa0"
     )
     response = greenAPI.sending.sendPoll(
         "996559001201@c.us",
@@ -56,6 +56,7 @@ def whatsapp_sender(order):
             {"optionName": "Отклонен"}
         ]
     )
+
     response = greenAPI.sending.sendPoll(
         "996550566307@c.us",
         f"{text}",
