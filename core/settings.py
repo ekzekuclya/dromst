@@ -67,7 +67,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 #     "https://backend.dromstor.com"]
 
 
-SESSION_COOKIE_SECURE = True #del
+# SESSION_COOKIE_SECURE = True #del
 SESSION_COOKIE_SAMESITE = None
 CORS_ALLOW_CREDENTIALS = True 
 CSRF_COOKIE_SECURE = False # True
